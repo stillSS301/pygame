@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>
+        New Account Creation
+    </title>
+</head>
+<body>
+
+    <h1>
+        REGISTER
+    </h1>
+
+    <form>
+        First Name:<input type="text" id="fname" name="fname">
+        <br>
+        Last Name:<input type="text" id="lname" name="lname">
+        <br>
+        Email:<input type="text" id="email" name="email">
+        <br>
+        Username:<input type="text" id="uname" name="uname">
+        <br>
+        <button type="button" onclick="submitForm()">Sign Up</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            var email = document.getElementById('email').value;
+            var uname = document.getElementById('uname').value;
+        
+            var formData = fname + "\n" +
+                lname + "\n" +
+                email + "\n" +
+                uname + "\n";
+
+        
+            var b = new Blob([formData], { type: 'text/plain' });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(b);
+            a.download = 'form_data.txt';
+            a.click();
+        }
+    </script>
+
+</body>
+</html>
